@@ -1,0 +1,16 @@
+# LaTeX build artifacts
+build/
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.toc
+
+# Backups
+*_backup_*.pdf
+*_backup_*.tex
+
+# macOS
+.DS_Store

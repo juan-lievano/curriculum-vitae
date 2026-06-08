@@ -1,0 +1,125 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% "ModernCV" CV y Carta de Presentación
+% Plantilla en LaTeX
+% Versión 1.11 (19/6/14)
+%
+% Esta plantilla ha sido descargada de:
+% http://www.LaTeXTemplates.com
+%
+% Autor original:
+% Xavier Danaux (xdanaux@gmail.com)
+%
+% Licencia:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Nota importante:
+% Esta plantilla requiere que los archivos moderncv.cls y .sty estén en el 
+% mismo directorio que este archivo .tex. Estos archivos proporcionan el estilo 
+% y los temas utilizados para estructurar el documento.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PAQUETES Y CONFIGURACIONES DEL DOCUMENTO
+%----------------------------------------------------------------------------------------
+
+\documentclass[12pt,a4paper,sans]{moderncv} % Tamaños de fuente: 10, 11 o 12; tamaños de papel: a4paper, letterpaper, a5paper, legalpaper, executivepaper o landscape; familias tipográficas: sans o roman.
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[export]{adjustbox}
+
+\usepackage{multicol}
+
+\moderncvstyle{casual} % Tema del CV - opciones: 'casual' (por defecto), 'classic', 'oldstyle' y 'banking'.
+\moderncvcolor{black} % Color del CV - opciones: 'blue' (por defecto), 'orange', 'green', 'red', 'purple', 'grey' y 'black'.
+
+\usepackage{color}
+
+\usepackage{lipsum} % Para insertar texto de relleno 'Lorem ipsum'.
+
+\usepackage[scale=0.85]{geometry} % Reduce los márgenes del documento.
+\setlength{\hintscolumnwidth}{4cm} % Ajusta el ancho de la columna de fechas.
+%\setlength{\makecvtitlenamewidth}{10cm} % Para el estilo 'classic', ajustar el ancho asignado al nombre.
+
+%----------------------------------------------------------------------------------------
+%	NOMBRE Y DATOS DE CONTACTO
+%----------------------------------------------------------------------------------------
+
+\firstname{Juan Pablo} % Tu nombre.
+\familyname{Liévano Karim} % Tu apellido.
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\Huge{Juan Pablo Liévano Karim}\normalsize
+\hrulefill
+%----------------------------------------------------------------------------------------
+%	DATOS DE CONTACTO
+%----------------------------------------------------------------------------------------
+
+
+%----------------------------------------------------------------------------------------
+%	EDUCACIÓN
+%----------------------------------------------------------------------------------------
+
+\section{Educación}
+\cvitem{2018 -- 2020}{\textbf{Maestría en Matemáticas, IMPA.} \textit{Río de Janeiro, Brasil}.}
+\cvitem{2014 -- 2018}{\textbf{Pregrado en Matemáticas, Universidad de los Andes.} \textit{Bogotá, Colombia} \newline - Opción en Literatura. \newline - Opción en Historia de la Música.}
+\cvitem{2025}{\textbf{BlueDot Impact} (San Francisco). Dos certificaciones (q.v.\ bluedot.org): \newline - \textit{AGI Strategy}. \newline - \textit{Technical AI Safety}.}
+
+%----------------------------------------------------------------------------------------
+%	EXPERIENCIA
+%----------------------------------------------------------------------------------------
+
+\section{Experiencia}
+\cvitem{}{\small\textit{Experiencias seleccionadas, organizadas según su relevancia profesional.}}
+\cvitem{2024, 2025}{\textbf{Investigador en CHAI, UC Berkeley} (dos veces). \textit{El laboratorio de IA segura de Berkeley, dirigido por Stuart Russell.} \newline - 2025: entrené, con aprendizaje por refuerzo, un asistente para un juego cooperativo tipo Minecraft cuyo objetivo es oculto y debe inferirse de las acciones humanas (con \href{https://camallen.net}{Cameron Allen}). \newline - 2024: programa ``Asking for Help'' de alineación de IA (con \href{https://bplaut.github.io}{Benjamin Plaut}), que derivó en el artículo coautorado con Stuart Russell.}
+\cvitem{2025, 2026}{\textbf{Docente, Universidad de los Andes}. \textit{Facultad de Economía.} Profesor de dos cursos avanzados: \newline - ``Machine Learning para Business Intelligence''. \newline - ``Deep Learning y aplicaciones avanzadas de Machine Learning''.}
+\cvitem{2023 -- 2025}{\textbf{Investigador en ML y desarrollador Python, Quantil}. Firma colombiana líder en matemáticas aplicadas e IA, con clientes como Ecopetrol, Banco W y el Estado colombiano.}
+\cvitem{2018, 2021, 2022}{\textbf{Editor y traductor de currículo, \textit{Illustrative Mathematics}}. Organización líder en educación matemática, cuyos currículos basados en evidencia se usan internacionalmente.}
+\cvitem{2016, 2017}{\textbf{Profesor complementario, Universidad de los Andes}. \textit{Departamento de Matemáticas.} Dos cursos introductorios: \newline - Álgebra Lineal. \newline - Cálculo Integral.}
+\cvitem{2023}{\textbf{Asistente de investigación, UCLA}. Análisis cualitativo de datos y edición conceptual para un proyecto de bienestar social con madres adolescentes en Cartagena y Medellín.}
+\cvitem{2022 -- actual}{\textbf{Consultor de datos, Joyería Liévano}. Modelos predictivos y análisis de clientes.}
+
+%----------------------------------------------------------------------------------------
+%	RECONOCIMIENTOS, PROYECTOS Y CONFERENCIAS POR INVITACIÓN
+%----------------------------------------------------------------------------------------
+
+\section{Reconocimientos, proyectos y conferencias por invitación}
+
+\cvitem{2025}{\textbf{Primer autor en NeurIPS}. \textit{Una de las conferencias más importantes del mundo en inteligencia artificial.} Presenté el artículo \textit{``Echo of Bayes: Learned Memory Functions Can Recover Belief States''} (con UC Berkeley y Brown University). Disponible en \href{https://openreview.net/forum?id=XpJgFwSJFM}{OpenReview}.}
+
+\cvitem{2025}{\textbf{Coautor de un artículo con \href{https://people.eecs.berkeley.edu/~russell/}{Stuart Russell}}. (Reconocido cientifico y autor de «Artificial Intelligence: A Modern Approach», el libro de texto de IA más usado del mundo). Articulo: \textit{``Safe Learning Under Irreversible Dynamics via Asking for Help''} \href{https://arxiv.org/abs/2502.14043}{(arXiv:2502.14043)}.}
+
+\cvitem{2026}{\textbf{Artículo en preparación} sobre sistemas de recomendación, con Sana Panday (UC Berkeley): diseñar algoritmos de recomendación que incorporen incentivos de construcción de paz, en lugar de optimizar únicamente la captación de atención (\textit{engagement}).}
+
+\cvitem{2018}{\textbf{Beca completa con estipendio (CNPq)} para la maestría en IMPA.}
+
+\cvitem{2024, 2025, 2026}{\textbf{Participante invitado al taller anual de CHAI} en Asilomar, California. Retiro por invitación que reúne cada año a unos 200 investigadores líderes en IA y seguridad de IA.}
+
+
+%----------------------------------------------------------------------------------------
+%	HABILIDADES
+%----------------------------------------------------------------------------------------
+
+\section{Habilidades}
+\cvitem{}{- Python (Pandas para ciencia de datos; JAX/PyTorch para aprendizaje por refuerzo).}{}
+\cvitem{}{- Amplio conocimiento en estadística, probabilidad, álgebra lineal y lógica formal.}{}
+\cvitem{}{- Pedagogía matemática: diseño de currículo (Illustrative Mathematics) y docencia universitaria (Uniandes).}{}
+\cvitem{}{- Infraestructura y datos: Azure (OCR, Cognitive Search, Cosmos DB), Databricks, \LaTeX.}{}
+
+%----------------------------------------------------------------------------------------
+%	IDIOMAS
+%----------------------------------------------------------------------------------------
+
+\section{Idiomas}
+
+\cvitem{}{Español, \textit{Nativo}.}{}
+\cvitem{}{Inglés, \textit{Muy avanzado}.}{}
+\cvitem{}{Portugués, \textit{Avanzado}.}{}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}

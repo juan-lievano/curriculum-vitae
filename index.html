@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Juan Pablo Liévano Karim — CV</title>
+  <meta name="description" content="CV / Hoja de vida — Juan Pablo Liévano Karim." />
+  <style>
+    :root { --bg: #f4f5f7; --bar: #1f2937; --accent: #2563eb; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg); color: #fff; display: flex; flex-direction: column; height: 100vh;
+    }
+    header {
+      background: var(--bar); padding: 14px 20px; display: flex; align-items: center;
+      justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    }
+    header h1 { font-size: 1.05rem; font-weight: 600; margin: 0; }
+    .group { display: flex; gap: 10px; align-items: center; }
+    .lang { display: inline-flex; border: 1px solid #4b5563; border-radius: 6px; overflow: hidden; }
+    .lang button {
+      background: transparent; color: #d1d5db; border: 0; padding: 7px 14px;
+      font-size: 0.9rem; font-weight: 500; cursor: pointer;
+    }
+    .lang button.active { background: var(--accent); color: #fff; }
+    a.btn {
+      text-decoration: none; color: #fff; background: var(--accent); padding: 8px 16px;
+      border-radius: 6px; font-size: 0.9rem; font-weight: 500; white-space: nowrap;
+    }
+    a.btn.secondary { background: #374151; }
+    a.btn:hover, .lang button:not(.active):hover { filter: brightness(1.15); }
+    main { flex: 1; min-height: 0; }
+    object, iframe { width: 100%; height: 100%; border: 0; display: block; }
+    .fallback { color: #1f2937; padding: 40px; text-align: center; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Juan Pablo Liévano Karim</h1>
+    <div class="group">
+      <div class="lang" role="group" aria-label="Language">
+        <button id="btn-en" class="active" onclick="setLang('en')">English</button>
+        <button id="btn-es" onclick="setLang('es')">Español</button>
+      </div>
+      <a class="btn" id="download" href="cv-en.pdf" download>Download</a>
+      <a class="btn secondary" id="open" href="cv-en.pdf" target="_blank" rel="noopener">Open</a>
+    </div>
+  </header>
+  <main>
+    <object id="viewer" data="cv-en.pdf" type="application/pdf">
+      <iframe id="viewer-frame" src="cv-en.pdf">
+        <p class="fallback">Your browser can't display the PDF.
+          <a href="cv-en.pdf">Download it here</a>.</p>
+      </iframe>
+    </object>
+  </main>
+
+  <script>
+    var LABELS = {
+      en: { download: "Download", open: "Open" },
+      es: { download: "Descargar", open: "Abrir" }
+    };
+    function setLang(lang) {
+      var file = "cv-" + lang + ".pdf";
+      document.getElementById("viewer").setAttribute("data", file);
+      document.getElementById("viewer-frame").setAttribute("src", file);
+      document.getElementById("download").setAttribute("href", file);
+      document.getElementById("open").setAttribute("href", file);
+      document.getElementById("download").textContent = LABELS[lang].download;
+      document.getElementById("open").textContent = LABELS[lang].open;
+      document.getElementById("btn-en").classList.toggle("active", lang === "en");
+      document.getElementById("btn-es").classList.toggle("active", lang === "es");
+      document.documentElement.lang = lang;
+      if (history.replaceState) history.replaceState(null, "", "#" + lang);
+    }
+    // Honor #es / #en in the URL on load so a language can be linked directly.
+    if (location.hash === "#es") setLang("es");
+  </script>
+</body>
+</html>
