@@ -28,15 +28,12 @@ off the public repo).
 ## How to update
 
 1. Edit the relevant `.tex`.
-2. Compile with latexmk (output lands in `build/`):
+2. Rebuild the PDFs (compiles into `build/` and copies to `cv-en.pdf` / `cv-es.pdf`):
    ```sh
-   latexmk -pdf -outdir=build jplk_cv_english.tex   # or jplk_cv_espanol.tex
+   ./build.sh        # both languages
+   ./build.sh en     # English only  (or: ./build.sh es)
    ```
-3. Copy the fresh PDF to the stable path the page serves:
-   ```sh
-   cp build/jplk_cv_english.pdf cv-en.pdf           # or build/jplk_cv_espanol.pdf cv-es.pdf
-   ```
-4. Commit and push:
+3. Commit and push:
    ```sh
    git add -A && git commit -m "Update CV" && git push
    ```

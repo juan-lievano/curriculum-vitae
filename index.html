@@ -45,36 +45,32 @@
         <button id="btn-es" onclick="setLang('es')">Español</button>
       </div>
       <a class="btn" id="download" href="cv-en.pdf" download>Download</a>
-      <a class="btn secondary" id="open" href="cv-en.pdf" target="_blank" rel="noopener">Open</a>
     </div>
   </header>
-  <main>
-    <object id="viewer" data="cv-en.pdf" type="application/pdf">
-      <iframe id="viewer-frame" src="cv-en.pdf">
-        <p class="fallback">Your browser can't display the PDF.
-          <a href="cv-en.pdf">Download it here</a>.</p>
-      </iframe>
-    </object>
-  </main>
+  <main id="main"></main>
 
   <script>
     var LABELS = {
-      en: { download: "Download", open: "Open", name: "Juan Liévano-Karim" },
-      es: { download: "Descargar", open: "Abrir", name: "Juan Pablo Liévano Karim" }
+      en: { download: "Download", name: "Juan Liévano-Karim" },
+      es: { download: "Descargar", name: "Juan Pablo Liévano Karim" }
     };
-    var currentLang = "en";
+    var currentLang = null;
     function setLang(lang) {
-      // Re-setting the <object> data to the same PDF makes some browsers blank
-      // out the viewer, so only touch the DOM when the language actually changes.
       if (lang === currentLang) return;
       currentLang = lang;
       var file = "cv-" + lang + ".pdf";
-      document.getElementById("viewer").setAttribute("data", file);
-      document.getElementById("viewer-frame").setAttribute("src", file);
+      // Rebuild the viewer node from scratch. Reusing the same <object>/<iframe>
+      // and only swapping its source makes some browsers blank out the PDF.
+      var main = document.getElementById("main");
+      main.innerHTML =
+        '<object data="' + file + '" type="application/pdf">' +
+          '<iframe src="' + file + '">' +
+            '<p class="fallback">Your browser can\'t display the PDF. ' +
+              '<a href="' + file + '">Download it here</a>.</p>' +
+          '</iframe>' +
+        '</object>';
       document.getElementById("download").setAttribute("href", file);
-      document.getElementById("open").setAttribute("href", file);
       document.getElementById("download").textContent = LABELS[lang].download;
-      document.getElementById("open").textContent = LABELS[lang].open;
       document.getElementById("name").textContent = LABELS[lang].name;
       document.getElementById("btn-en").classList.toggle("active", lang === "en");
       document.getElementById("btn-es").classList.toggle("active", lang === "es");
@@ -82,7 +78,7 @@
       if (history.replaceState) history.replaceState(null, "", "#" + lang);
     }
     // Honor #es / #en in the URL on load so a language can be linked directly.
-    if (location.hash === "#es") setLang("es");
+    setLang(location.hash === "#es" ? "es" : "en");
   </script>
 </body>
 </html>
