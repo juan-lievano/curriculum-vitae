@@ -59,14 +59,17 @@
       if (lang === currentLang) return;
       currentLang = lang;
       var file = "cv-" + lang + ".pdf";
+      // Cache-buster so an updated PDF shows immediately instead of a stale
+      // browser-cached copy. Changes once per page load.
+      var src = file + "?v=" + Date.now();
       // Rebuild the viewer node from scratch. Reusing the same <object>/<iframe>
       // and only swapping its source makes some browsers blank out the PDF.
       var main = document.getElementById("main");
       main.innerHTML =
-        '<object data="' + file + '" type="application/pdf">' +
-          '<iframe src="' + file + '">' +
+        '<object data="' + src + '" type="application/pdf">' +
+          '<iframe src="' + src + '">' +
             '<p class="fallback">Your browser can\'t display the PDF. ' +
-              '<a href="' + file + '">Download it here</a>.</p>' +
+              '<a href="' + src + '">Download it here</a>.</p>' +
           '</iframe>' +
         '</object>';
       document.getElementById("download").setAttribute("href", file);
