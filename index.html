@@ -38,7 +38,7 @@
 </head>
 <body>
   <header>
-    <h1>Juan Pablo Liévano Karim</h1>
+    <h1 id="name">Juan Liévano-Karim</h1>
     <div class="group">
       <div class="lang" role="group" aria-label="Language">
         <button id="btn-en" class="active" onclick="setLang('en')">English</button>
@@ -59,10 +59,15 @@
 
   <script>
     var LABELS = {
-      en: { download: "Download", open: "Open" },
-      es: { download: "Descargar", open: "Abrir" }
+      en: { download: "Download", open: "Open", name: "Juan Liévano-Karim" },
+      es: { download: "Descargar", open: "Abrir", name: "Juan Pablo Liévano Karim" }
     };
+    var currentLang = "en";
     function setLang(lang) {
+      // Re-setting the <object> data to the same PDF makes some browsers blank
+      // out the viewer, so only touch the DOM when the language actually changes.
+      if (lang === currentLang) return;
+      currentLang = lang;
       var file = "cv-" + lang + ".pdf";
       document.getElementById("viewer").setAttribute("data", file);
       document.getElementById("viewer-frame").setAttribute("src", file);
@@ -70,6 +75,7 @@
       document.getElementById("open").setAttribute("href", file);
       document.getElementById("download").textContent = LABELS[lang].download;
       document.getElementById("open").textContent = LABELS[lang].open;
+      document.getElementById("name").textContent = LABELS[lang].name;
       document.getElementById("btn-en").classList.toggle("active", lang === "en");
       document.getElementById("btn-es").classList.toggle("active", lang === "es");
       document.documentElement.lang = lang;
